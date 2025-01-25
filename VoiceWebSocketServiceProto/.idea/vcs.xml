@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$/../../VoiceChannelDataService" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../VoiceChannelDataServiceProto" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../VoiceMessageService" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../../VoiceMessageServiceProto" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
+  </component>
+</project>

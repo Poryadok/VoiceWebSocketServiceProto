@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../../VoiceChannelDataService/VoiceChannelDataService/.idea/VoiceChannelDataService.iml" filepath="$PROJECT_DIR$/../../VoiceChannelDataService/VoiceChannelDataService/.idea/VoiceChannelDataService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../VoiceChannelDataServiceProto/VoiceChannelDataServiceProto/.idea/VoiceChannelDataServiceProto.iml" filepath="$PROJECT_DIR$/../../VoiceChannelDataServiceProto/VoiceChannelDataServiceProto/.idea/VoiceChannelDataServiceProto.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../VoiceMessageService/VoiceMessageService/.idea/VoiceMessageService.iml" filepath="$PROJECT_DIR$/../../VoiceMessageService/VoiceMessageService/.idea/VoiceMessageService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../VoiceMessageServiceProto/VoiceMessageServiceProto/.idea/VoiceMessageServiceProto.iml" filepath="$PROJECT_DIR$/../../VoiceMessageServiceProto/VoiceMessageServiceProto/.idea/VoiceMessageServiceProto.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../VoiceWebSocketService/VoiceWebSocketService/.idea/VoiceWebSocketService.iml" filepath="$PROJECT_DIR$/../../VoiceWebSocketService/VoiceWebSocketService/.idea/VoiceWebSocketService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/VoiceWebSocketServiceProto.iml" filepath="$PROJECT_DIR$/.idea/VoiceWebSocketServiceProto.iml" />
+    </modules>
+  </component>
+</project>

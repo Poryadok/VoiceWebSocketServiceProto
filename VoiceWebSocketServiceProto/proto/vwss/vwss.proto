@@ -1,0 +1,18 @@
+﻿syntax = "proto3";
+
+package vwss;
+
+option go_package = "poryadok.voice.v1;vwssv1";
+
+service Sender{
+  rpc Send (SendRequest) returns (SenderResponse);
+}
+
+message SendRequest{
+  string user = 1;
+  string message = 2;
+}
+
+message SenderResponse{
+  bool result = 1;
+}
