@@ -4,8 +4,8 @@ package vwss;
 
 option go_package = "poryadok.voice.v1;vwssv1";
 
-service Sender{
-  rpc Send (SendRequest) returns (SenderResponse);
+service Notificator{
+  rpc SendNotification (SendRequest) returns (SuccessResponse);
 }
 
 message SendRequest{
@@ -13,6 +13,6 @@ message SendRequest{
   string message = 2;
 }
 
-message SenderResponse{
-  bool result = 1;
+message SuccessResponse{
+  int32 result = 1;
 }

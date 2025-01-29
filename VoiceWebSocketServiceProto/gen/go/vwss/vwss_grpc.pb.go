@@ -19,101 +19,101 @@ import (
 const _ = grpc.SupportPackageIsVersion9
 
 const (
-	Sender_Send_FullMethodName = "/vwss.Sender/Send"
+	Notificator_SendNotification_FullMethodName = "/vwss.Notificator/SendNotification"
 )
 
-// SenderClient is the client API for Sender service.
+// NotificatorClient is the client API for Notificator service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type SenderClient interface {
-	Send(ctx context.Context, in *SendRequest, opts ...grpc.CallOption) (*SenderResponse, error)
+type NotificatorClient interface {
+	SendNotification(ctx context.Context, in *SendRequest, opts ...grpc.CallOption) (*SuccessResponse, error)
 }
 
-type senderClient struct {
+type notificatorClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewSenderClient(cc grpc.ClientConnInterface) SenderClient {
-	return &senderClient{cc}
+func NewNotificatorClient(cc grpc.ClientConnInterface) NotificatorClient {
+	return &notificatorClient{cc}
 }
 
-func (c *senderClient) Send(ctx context.Context, in *SendRequest, opts ...grpc.CallOption) (*SenderResponse, error) {
+func (c *notificatorClient) SendNotification(ctx context.Context, in *SendRequest, opts ...grpc.CallOption) (*SuccessResponse, error) {
 	cOpts := append([]grpc.CallOption{grpc.StaticMethod()}, opts...)
-	out := new(SenderResponse)
-	err := c.cc.Invoke(ctx, Sender_Send_FullMethodName, in, out, cOpts...)
+	out := new(SuccessResponse)
+	err := c.cc.Invoke(ctx, Notificator_SendNotification_FullMethodName, in, out, cOpts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// SenderServer is the server API for Sender service.
-// All implementations must embed UnimplementedSenderServer
+// NotificatorServer is the server API for Notificator service.
+// All implementations must embed UnimplementedNotificatorServer
 // for forward compatibility.
-type SenderServer interface {
-	Send(context.Context, *SendRequest) (*SenderResponse, error)
-	mustEmbedUnimplementedSenderServer()
+type NotificatorServer interface {
+	SendNotification(context.Context, *SendRequest) (*SuccessResponse, error)
+	mustEmbedUnimplementedNotificatorServer()
 }
 
-// UnimplementedSenderServer must be embedded to have
+// UnimplementedNotificatorServer must be embedded to have
 // forward compatible implementations.
 //
 // NOTE: this should be embedded by value instead of pointer to avoid a nil
 // pointer dereference when methods are called.
-type UnimplementedSenderServer struct{}
+type UnimplementedNotificatorServer struct{}
 
-func (UnimplementedSenderServer) Send(context.Context, *SendRequest) (*SenderResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Send not implemented")
+func (UnimplementedNotificatorServer) SendNotification(context.Context, *SendRequest) (*SuccessResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method SendNotification not implemented")
 }
-func (UnimplementedSenderServer) mustEmbedUnimplementedSenderServer() {}
-func (UnimplementedSenderServer) testEmbeddedByValue()                {}
+func (UnimplementedNotificatorServer) mustEmbedUnimplementedNotificatorServer() {}
+func (UnimplementedNotificatorServer) testEmbeddedByValue()                     {}
 
-// UnsafeSenderServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to SenderServer will
+// UnsafeNotificatorServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to NotificatorServer will
 // result in compilation errors.
-type UnsafeSenderServer interface {
-	mustEmbedUnimplementedSenderServer()
+type UnsafeNotificatorServer interface {
+	mustEmbedUnimplementedNotificatorServer()
 }
 
-func RegisterSenderServer(s grpc.ServiceRegistrar, srv SenderServer) {
-	// If the following call pancis, it indicates UnimplementedSenderServer was
+func RegisterNotificatorServer(s grpc.ServiceRegistrar, srv NotificatorServer) {
+	// If the following call pancis, it indicates UnimplementedNotificatorServer was
 	// embedded by pointer and is nil.  This will cause panics if an
 	// unimplemented method is ever invoked, so we test this at initialization
 	// time to prevent it from happening at runtime later due to I/O.
 	if t, ok := srv.(interface{ testEmbeddedByValue() }); ok {
 		t.testEmbeddedByValue()
 	}
-	s.RegisterService(&Sender_ServiceDesc, srv)
+	s.RegisterService(&Notificator_ServiceDesc, srv)
 }
 
-func _Sender_Send_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _Notificator_SendNotification_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(SendRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(SenderServer).Send(ctx, in)
+		return srv.(NotificatorServer).SendNotification(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: Sender_Send_FullMethodName,
+		FullMethod: Notificator_SendNotification_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(SenderServer).Send(ctx, req.(*SendRequest))
+		return srv.(NotificatorServer).SendNotification(ctx, req.(*SendRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// Sender_ServiceDesc is the grpc.ServiceDesc for Sender service.
+// Notificator_ServiceDesc is the grpc.ServiceDesc for Notificator service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var Sender_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "vwss.Sender",
-	HandlerType: (*SenderServer)(nil),
+var Notificator_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "vwss.Notificator",
+	HandlerType: (*NotificatorServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "Send",
-			Handler:    _Sender_Send_Handler,
+			MethodName: "SendNotification",
+			Handler:    _Notificator_SendNotification_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
